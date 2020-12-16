@@ -1,0 +1,13 @@
+{
+  "name": "mosnewyear.online",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "prettier": {
+    "tabWidth": 2,
+    "arrowParens": "avoid",
+    "singleQuote": true,
+    "semi": false,
+    "bracketSpacing": true
+  }
+}

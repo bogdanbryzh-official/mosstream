@@ -1,0 +1,362 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #e5e5e5;
+  font-family: "Nunito", sans-serif;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  background-color: #ffffffdd;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 1440px;
+}
+
+header {
+  padding-bottom: 150px;
+  position: relative;
+  z-index: 10;
+}
+
+.header-container {
+  background-image: url("./img/header_bg.jpg");
+  background-size: cover;
+  background-position: 50% 80%;
+  padding-top: 80px;
+  z-index: 11;
+}
+
+.logo_bg {
+  height: 130px;
+  width: 600px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0.8918) 61.46%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  padding: 0 40px;
+}
+
+.logo {
+  width: 300px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.header_text {
+  margin-top: -100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 30px;
+}
+
+.header_text .text {
+  text-transform: uppercase;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 110px;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.header_text .numbers {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 300px;
+  color: #dfca89;
+  mix-blend-mode: screen;
+}
+
+.christmas-tree {
+  background-image: url("./img/header/ctree.png");
+  background-size: auto;
+  background-position: 50% 140%;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: cover;
+  width: 96%;
+  height: 300px;
+  margin-left: 2%;
+}
+
+main {
+  padding: 35px;
+}
+
+.heading {
+  font-size: 32px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dfca89;
+  margin-bottom: 30px;
+}
+
+.timer {
+  width: 100%;
+  height: 700px;
+  background-image: url('./img/timer2.png');
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-counter > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.timer-container p {
+  font-size: 60px;
+  font-weight: lighter;
+}
+
+#days p:first-child,
+#hours p:first-child,
+#minutes p:first-child {
+  font-size: 70px;
+  font-weight: 900;
+}
+
+.everythingelse {
+  margin-top: 70px;
+  display: grid;
+  grid-gap: 35px;
+  grid-template-columns: 1fr 400px;
+}
+
+.promo {
+  margin-bottom: 50px;
+}
+
+.promo-container {
+  background-color: #cc2222;
+  height: 150px;
+  border-radius: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 200px;
+  color: #ffffff;
+  position: relative;
+  font-size: 18px;
+}
+
+.promo-container::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 161px;
+  height: 161px;
+  border-radius: 75px;
+  top: -5px;
+  left: -3px;
+  background-image: url("./img/candle.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.promo-container::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 130px;
+  height: 130px;
+  top: 15px;
+  right: 10px;
+  background-image: url("./img/star.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.placeholder {
+  width: 100%;
+  height: 500px;
+  background-color: #252525;
+  position: relative;
+}
+.placeholder::after {
+  position: relative;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+
+  border-left: 100px solid #eeeeee;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}
+
+.quiz {
+  border: 1px solid #d6dade;
+  padding: 26px 33px;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+
+.question {
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+
+.variant {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+
+input[type="radio"] {
+  width: 0;
+  height: 0;
+  display: block;
+
+}
+
+input[type="radio"]:checked + .bullet {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 5px solid #2589de;
+  margin-right: 10px;
+}
+
+input[type="radio"] + .bullet {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid #2589de;
+  margin-right: 10px;
+}
+
+form {
+  font-size: 20px;
+}
+
+form p {
+  margin: 30px 0;
+}
+
+label,
+input {
+  display: block;
+  font-size: 20px;
+  margin: 5px 0;
+  width: 100%;
+}
+
+label {
+  font-weight: 600;
+}
+
+input::placeholder,
+textarea::placeholder  {
+  font-size: 14px;
+  font-family: "Nunito";
+  /* padding-left: 15px; */
+}
+
+input,
+textarea {
+  border: 1px solid #d6dade;
+  border-radius: 4px;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+textarea {
+  width: 100%;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  color: #fff;
+  background-color: #cc2222;
+  border-radius: 4px;
+  font-family: 'Nunito';
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.news-cover {
+  width: 100%;
+  height: 200px;
+  background-image: url('./img/post.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.news-title {
+  font-size: 28px;
+  margin-top: 10px;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+.news-date {
+  font-size: 24px;
+  font-weight: lighter;
+
+}
+
+.news button {
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.news {
+  border-bottom: 1px solid #dfca89;
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #ebeff3;
+  padding: 30px 70px;
+  color: #757575;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.copyrights {
+  text-transform: uppercase;
+}
