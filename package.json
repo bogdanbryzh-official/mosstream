@@ -9,5 +9,8 @@
     "singleQuote": true,
     "semi": false,
     "bracketSpacing": true
+  },
+  "scripts": {
+    "start": "serve -s ."
   }
 }

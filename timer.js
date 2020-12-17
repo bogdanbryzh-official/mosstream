@@ -1,42 +1,52 @@
-// `<script src="https://facecast.net/v/js/iframe.js"></script>
-// <iframe
-// id="b8mned"
-// onload="fc_load_iframe(this)"
-// style="border: none"
-// width="100%"
-// height="600"
-// allow="autoplay; fullscreen"
-// allowfullscreen
-// ></iframe>`;
+const DateTime = luxon.DateTime
 
-const finishDay = 16
-const finishHour = 12
-const finishMinute = 00
+const finishUTC = DateTime.utc(2020, 12, 24, 12, 00)
+const nowUTC = DateTime.utc()
 
-const getDaysLeft = () => {
-  finishDay - new Date().getUTCDate()
+const DAY = 60 * 24
+const HOUR = 60
+
+const finish = {
+  days: finishUTC.day,
+  hours: finishUTC.hour,
+  minutes: finishUTC.minute,
 }
-const getHoursLeft = () => {
-  finishHour - new Date().getUTCHours()
+const now = {
+  days: nowUTC.day,
+  hours: nowUTC.hour,
+  minutes: nowUTC.minute,
 }
-const getMinutesLeft = () => {
-  finishMinute - new Date().getUTCMinutes()
+
+const finishTime = finish.days * 24 * 60 + finish.hours * 60 + finish.minutes
+const nowTime = now.days * 24 * 60 + now.hours * 60 + now.minutes
+
+const differenceTime = finishTime - nowTime
+
+const days = Math.floor(differenceTime / DAY)
+const hours = Math.floor((differenceTime - days * DAY) / HOUR)
+const minutes = differenceTime - days * DAY - hours * HOUR
+
+const difference = {
+  days,
+  hours,
+  minutes,
 }
 
 const showStream = () => {
   document.getElementById('timer').remove()
-  document.getElementById(
-    'stream'
-  ).innerHTML += `<script src="https://facecast.net/v/js/iframe.js"></script>
-  <iframe
-  id="b8mned"
-  onload="fc_load_iframe(this)"
-  style="border: none"
-  width="100%"
-  height="600"
-  allow="autoplay; fullscreen"
-  allowfullscreen
-  ></iframe>`
+  const stream = document.getElementById('stream')
+  stream.innerHTML += `<script src="https://facecast.net/v/js/iframe.js"></script>`
+  stream.getElementsByTagName('script')[0].addEventListener('load', () => {
+    stream.innerHTML += `<iframe
+    id="b8mned"
+    onload="fc_load_iframe(this)"
+    style="border: none"
+    width="100%"
+    height="600"
+    allow="autoplay; fullscreen"
+    allowfullscreen
+    ></iframe>`
+  })
 }
 
 const flashDays = () => {
@@ -47,7 +57,7 @@ const flashDays = () => {
     .getElementById('days')
     .getElementsByTagName('p')[1]
 
-  const daysLeft = getDaysLeft()
+  const daysLeft = difference.days
 
   valueContainer.textContent = daysLeft
 
@@ -70,7 +80,7 @@ const flashHours = () => {
     .getElementById('hours')
     .getElementsByTagName('p')[1]
 
-  const hoursLeft = getHoursLeft()
+  const hoursLeft = difference.hours
 
   valueContainer.textContent = hoursLeft
 
@@ -90,10 +100,10 @@ const flashMinutes = () => {
     .getElementById('minutes')
     .getElementsByTagName('p')[0]
   const textContainer = document
-    .getElementById('days')
+    .getElementById('minutes')
     .getElementsByTagName('p')[1]
 
-  const minutesLeft = getMinutesLeft()
+  const minutesLeft = difference.minutes
 
   valueContainer.textContent = minutesLeft
 
@@ -119,7 +129,8 @@ const flashMinutes = () => {
 }
 
 const count = () => {
-  if (getDaysLeft() <= 0 || getHoursLeft() <= 0 || getMinutesLeft() <= 0) {
+  // console.log(getDaysLeft(), getHoursLeft(), getMinutesLeft())
+  if (differenceTime <= 0) {
     clearInterval(timer)
     showStream()
   } else {
@@ -129,6 +140,6 @@ const count = () => {
   }
 }
 
-count()
-
 const timer = setInterval(count, 1000)
+
+count()

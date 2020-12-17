@@ -140,110 +140,49 @@
                 </div>
                 <div class="everythingelseright">
                   <div class="quizes">
-                    <h2 class="heading">Опросы</h2>
-                    <div class="quiz">
-                      <form>
-                        <h3 class="question">Сколько вам лет?</h3>
-                        <label class="variant" for="gffe"
-                          ><input
-                            name="pohuy"
-                            id="gffe"
-                            value="ere"
-                            type="radio"
-                          /><span class="bullet"></span>18 - 25</label
-                        >
-                        <label class="variant" for="defe"
-                          ><input
-                            name="pohuy"
-                            id="defe"
-                            value="ygd"
-                            type="radio"
-                          /><span class="bullet"></span>25 - 35</label
-                        >
-                        <label class="variant" for="rgrg"
-                          ><input
-                            name="pohuy"
-                            id="rgrg"
-                            value="iwhd"
-                            type="radio"
-                          /><span class="bullet"></span>35 - 45</label
-                        >
-                        <label class="variant" for="efw"
-                          ><input
-                            name="pohuy"
-                            id="efw"
-                            value="iwdh"
-                            type="radio"
-                          /><span class="bullet"></span>45+</label
-                        >
-                      </form>
+                    <h2 class="heading">Викторина</h2>
+
+                    <p>
+                      Пройдите и узнайте насколько хорошо вы разбираетесь в
+                      теме!
+                    </p>
+
+                    <button id="go-quiz">Пройти викторину</button>
+
+                    <div class="quiz-backdrop hidden">
+                      <div id="quiz-container" class="quiz-default-theme">
+                        <div id="quiz" class="quiz"></div>
+                      </div>
                     </div>
-                    <div class="quiz">
-                      <form>
-                        <h3 class="question">Сколько вам лет?</h3>
-                        <label class="variant" for="uefh"
-                          ><input
-                            type="radio"
-                            name="her"
-                            id="uefh"
-                            value="rth"
-                          /><span class="bullet"></span>18 - 25</label
-                        >
-                        <label class="variant" for="lsdjv"
-                          ><input
-                            type="radio"
-                            name="her"
-                            id="lsdjv"
-                            value="erg"
-                          /><span class="bullet"></span>25 - 35</label
-                        >
-                        <label class="variant" for="ljewfo"
-                          ><input
-                            type="radio"
-                            name="her"
-                            id="ljewfo"
-                            value="gir"
-                          /><span class="bullet"></span>35 - 45</label
-                        >
-                        <label class="variant" for="iehf"
-                          ><input
-                            type="radio"
-                            name="her"
-                            id="iehf"
-                            value="pwf"
-                          /><span class="bullet"></span>45+</label
-                        >
-                      </form>
-                    </div>
-                    <div class="feedback">
-                      <h2 class="heading">Обратная связь</h2>
-                      <form>
-                        <p>Поделитесь с нами своими мыслями!</p>
-                        <label for="name">Имя</label>
-                        <input type="text" id="name" placeholder="Ваше имя" />
-                        <label for="email">Почта</label>
-                        <input
-                          type="text"
-                          id="email"
-                          placeholder="Почтовый адрес"
-                        />
-                        <label for="phone">Телефон</label>
-                        <input
-                          type="text"
-                          id="phone"
-                          placeholder="Номер телефон"
-                        />
-                        <label for="comment">Комментарий</label>
-                        <textarea
-                          name="comment"
-                          id="comment"
-                          cols="30"
-                          rows="5"
-                          placeholder="Напишите сообщение"
-                        ></textarea>
-                        <button type="submit">Отправить</button>
-                      </form>
-                    </div>
+                  </div>
+                  <div class="feedback">
+                    <h2 class="heading">Обратная связь</h2>
+                    <form>
+                      <p>Поделитесь с нами своими мыслями!</p>
+                      <label for="name">Имя</label>
+                      <input type="text" id="name" placeholder="Ваше имя" />
+                      <label for="email">Почта</label>
+                      <input
+                        type="text"
+                        id="email"
+                        placeholder="Почтовый адрес"
+                      />
+                      <label for="phone">Телефон</label>
+                      <input
+                        type="text"
+                        id="phone"
+                        placeholder="Номер телефон"
+                      />
+                      <label for="comment">Комментарий</label>
+                      <textarea
+                        name="comment"
+                        id="comment"
+                        cols="30"
+                        rows="5"
+                        placeholder="Напишите сообщение"
+                      ></textarea>
+                      <button type="submit">Отправить</button>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -255,6 +194,9 @@
         </div>
       </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
     <script src="./timer.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/umbrellajs"></script>
+    <script src="./quiz.js"></script>
   </body>
 </html>

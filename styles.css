@@ -4,11 +4,14 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.2s;
 }
 
 body {
-  background-color: #e5e5e5;
-  font-family: "Nunito", sans-serif;
+  background: url('./img/fon.jpg');
+  background-repeat: repeat;
+  background-size: contain;
+  font-family: 'Nunito', sans-serif;
 }
 
 .content {
@@ -30,7 +33,7 @@ header {
 }
 
 .header-container {
-  background-image: url("./img/header_bg.jpg");
+  background-image: url('./img/header_bg.jpg');
   background-size: cover;
   background-position: 50% 80%;
   padding-top: 80px;
@@ -65,7 +68,7 @@ header {
 
 .header_text .text {
   text-transform: uppercase;
-  font-family: "PT Sans", sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.95);
   font-size: 110px;
@@ -73,7 +76,7 @@ header {
 }
 
 .header_text .numbers {
-  font-family: "PT Sans", sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-weight: 700;
   font-size: 300px;
   color: #dfca89;
@@ -81,9 +84,9 @@ header {
 }
 
 .christmas-tree {
-  background-image: url("./img/header/ctree.png");
+  background-image: url('./img/header/ctree.png');
   background-size: auto;
-  background-position: 50% 140%;
+  background-position: 50% -210px;
   background-repeat: no-repeat;
   position: absolute;
   background-size: cover;
@@ -100,6 +103,7 @@ main {
   font-size: 32px;
   padding-bottom: 15px;
   border-bottom: 1px solid #dfca89;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 
@@ -112,7 +116,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff
+  color: #ffffff;
 }
 
 .timer-container {
@@ -173,13 +177,13 @@ main {
 .promo-container::before {
   position: absolute;
   display: block;
-  content: "";
+  content: '';
   width: 161px;
   height: 161px;
   border-radius: 75px;
   top: -5px;
   left: -3px;
-  background-image: url("./img/candle.png");
+  background-image: url('./img/candle.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -187,12 +191,12 @@ main {
 .promo-container::after {
   position: absolute;
   display: block;
-  content: "";
+  content: '';
   width: 130px;
   height: 130px;
   top: 15px;
   right: 10px;
-  background-image: url("./img/star.svg");
+  background-image: url('./img/star.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -207,7 +211,7 @@ main {
 .placeholder::after {
   position: relative;
   display: block;
-  content: "";
+  content: '';
   width: 0;
   height: 0;
   border-top: 60px solid transparent;
@@ -218,34 +222,13 @@ main {
   left: calc(50% - 50px);
 }
 
-.quiz {
-  border: 1px solid #d6dade;
-  padding: 26px 33px;
-  border-radius: 4px;
-  margin-bottom: 40px;
-  font-size: 20px;
-}
-
-.question {
-  font-weight: normal;
-  margin-bottom: 12px;
-}
-
-.variant {
-  display: flex;
-  align-items: center;
-  margin-bottom: 7px;
-}
-
-
-input[type="radio"] {
+input[type='radio'] {
   width: 0;
   height: 0;
   display: block;
-
 }
 
-input[type="radio"]:checked + .bullet {
+input[type='radio']:checked + .bullet {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -254,7 +237,7 @@ input[type="radio"]:checked + .bullet {
   margin-right: 10px;
 }
 
-input[type="radio"] + .bullet {
+input[type='radio'] + .bullet {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -284,9 +267,9 @@ label {
 }
 
 input::placeholder,
-textarea::placeholder  {
+textarea::placeholder {
   font-size: 14px;
-  font-family: "Nunito";
+  font-family: 'Nunito';
   /* padding-left: 15px; */
 }
 
@@ -302,7 +285,9 @@ textarea {
   width: 100%;
 }
 
-form button {
+form button,
+.quizes button {
+  cursor: pointer;
   width: 100%;
   padding: 10px;
   border: none;
@@ -312,6 +297,123 @@ form button {
   font-family: 'Nunito';
   font-size: 16px;
   margin-top: 20px;
+}
+
+.quizes p {
+  font-size: 20px;
+  padding: 10px 30px;
+}
+
+.quiz-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #ffffffbb;
+}
+
+.quiz-default-theme #quiz {
+  box-shadow: 0 10px 30px #333333b3;
+  border: 2px solid #333;
+  color: #333;
+}
+
+.quiz-default-theme .variant:hover {
+  background-color: #333333b3;
+  cursor: pointer;
+  color: #fff;
+}
+
+.quiz-default-theme .next:disabled {
+  background-color: #333;
+}
+
+.quiz-success-theme #quiz {
+  box-shadow: 0 10px 30px #3b8608b3;
+  border: 2px solid #3b8608;
+  color: #3b8608;
+}
+
+.quiz-success-theme .next {
+  background-color: #3b8608;
+}
+
+.quiz-fail-theme #quiz {
+  box-shadow: 0 10px 30px #cc2222b3;
+  border: 2px solid #cc2222;
+  color: #cc2222;
+}
+
+.quiz-fail-theme .next {
+  background-color: #cc2222;
+}
+
+.quiz-success-theme .variant:hover,
+.quiz-fail-theme .variant:hover {
+  cursor: default;
+}
+
+.correct {
+  background-color: #3b8608;
+  color: #fff;
+}
+.wrong {
+  background-color: #cc2222;
+  color: #fff;
+}
+
+#quiz-container {
+  position: fixed;
+  width: 60%;
+  top: 20%;
+  left: 20%;
+}
+
+#quiz {
+  background-color: #fff;
+  border-left-width: 7px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#quiz h3 {
+  font-size: 26px;
+  text-align: center;
+}
+
+#quiz h4 {
+  padding: 20px;
+  font-weight: lighter;
+  text-align: left;
+  font-size: 22px;
+}
+
+#close-quiz {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  margin: 0;
+  top: 10px;
+  right: 10px;
+  background-image: url('./img/close.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+#close-quiz img {
+  width: 100%;
+}
+
+.variant {
+  padding: 10px 40px;
+  font-weight: normal;
+}
+
+.next:disabled {
+  cursor: not-allowed;
 }
 
 .news-cover {
@@ -332,7 +434,6 @@ form button {
 .news-date {
   font-size: 24px;
   font-weight: lighter;
-
 }
 
 .news button {
@@ -352,11 +453,281 @@ footer {
   background-color: #ebeff3;
   padding: 30px 70px;
   color: #757575;
-  font-family: "PT Sans", sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-weight: 700;
   font-size: 16px;
 }
 
 .copyrights {
   text-transform: uppercase;
+}
+/* Адаптив */
+@media only screen and (max-width: 1400px) {
+  .christmas-tree {
+    background-position: 50% 180%;
+  }
+
+  .header_text .text {
+    font-size: 100px;
+  }
+  .header_text .numbers {
+    font-size: 250px;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .promo-container p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header_text .text {
+    font-size: 80px;
+  }
+  .header_text .numbers {
+    font-size: 200px;
+  }
+
+  .logo_bg {
+    height: 110px;
+    width: 450px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .promo-container p {
+    font-size: 11px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .christmas-tree {
+    height: 225px;
+  }
+
+  .timer-container p {
+    font-size: 45px;
+
+    text-align: CENTER;
+  }
+  .promo-container {
+    background-color: #cc2222;
+    height: 141px;
+    border-radius: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 160px;
+    color: #ffffff;
+    position: relative;
+  }
+
+  .promo-container::before {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 150px;
+    height: 150px;
+  }
+  .header_text .text {
+    font-size: 65px;
+  }
+  .header_text .numbers {
+    font-size: 150px;
+  }
+
+  .everythingelse {
+    grid-template-columns: 1fr 300px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .everythingelse {
+    grid-template-columns: 1fr 250px;
+  }
+
+  form {
+    font-size: 18px;
+  }
+  .timer {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  .logo_bg {
+    height: 80px;
+    width: 350px;
+    margin-bottom: 30px;
+  }
+
+  .logo {
+    width: 200px;
+    height: 100%;
+    object-fit: contain;
+  }
+  .promo-container p {
+    font-size: 10px;
+  }
+  .everythingelse {
+    grid-template-columns: 1fr 200px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .christmas-tree {
+    height: 191px;
+  }
+  .timer-container p {
+    font-size: 35px;
+  }
+  .everythingelse {
+    display: block;
+  }
+  .promo-container p {
+    font-size: 13px;
+  }
+  .heading {
+    font-size: 40px;
+
+    text-align: center;
+  }
+  .news-card {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .header_text .numbers {
+    font-size: 100px;
+  }
+  .logo_bg {
+    height: 80px;
+    width: 350px;
+    margin-bottom: 60px;
+  }
+  .timer-container p {
+    font-size: 30px;
+  }
+  .timer {
+    width: 100%;
+    height: 350px;
+  }
+  .promo-container p {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  header {
+    padding-bottom: 100px;
+  }
+  .christmas-tree {
+    height: 180px;
+    background-position: 50% -150%;
+  }
+  .header_text .text {
+    font-size: 45px;
+  }
+  .header_text .numbers {
+    font-size: 75px;
+  }
+  .christmas-tree {
+    height: 150px;
+  }
+
+  .timer-counter > * {
+    padding: 0 25px;
+  }
+  .promo-container {
+    padding: 0 140px;
+  }
+  .promo-container::before {
+    width: 130px;
+    height: 130px;
+  }
+  .timer {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .logo {
+    width: 150px;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .logo_bg {
+    margin-bottom: 100px;
+  }
+  .timer-container p {
+    font-size: 25px;
+  }
+  .promo-container p {
+    font-size: 10px;
+  }
+
+  .promo-container::before {
+    width: 100px;
+    height: 100px;
+    top: 5px;
+  }
+  .promo-container p {
+    font-size: 10px;
+  }
+  .promo-container {
+    padding: 0 100px;
+    height: 115px;
+  }
+
+  .promo-container::after {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .header_text .text {
+    font-size: 30px;
+  }
+  .timer-container p {
+    font-size: 20px;
+  }
+  .timer-counter > * {
+    padding: 0 15px;
+  }
+  .timer {
+    width: 100%;
+    height: 200px;
+  }
+  .promo-container p {
+    font-size: 8px;
+  }
+  .promo-container {
+    padding: 0px 25px;
+    height: 115px;
+    padding-right: 110px;
+  }
+  .promo-container::before {
+    width: 100px;
+    height: 100px;
+    top: 5px;
+    display: none;
+  }
+  .timer-container p {
+    font-size: 18px;
+  }
+  .timer-counter > * {
+    padding: 0 10px;
+  }
+  .logo_bg {
+    height: 80px;
+    width: 100%;
+  }
+  .header_text .numbers {
+    font-size: 50px;
+  }
+}
+
+.hidden {
+  display: none !important;
 }
