@@ -27,11 +27,15 @@ body {
 }
 
 header {
-  padding-bottom: 150px;
-  position: relative;
-  z-index: 10;
+  margin-bottom: -100px;
 }
-
+.christmas-tree {
+  display: flex;
+  justify-content: center;
+}
+.christmas-tree img {
+  width: 95%;
+}
 .header-container {
   background-image: url('./img/header_bg.jpg');
   background-size: cover;
@@ -83,20 +87,12 @@ header {
   mix-blend-mode: screen;
 }
 
-/* .christmas-tree {
-  background-image: url('./img/header/ctree.png');
-  background-size: auto;
-  background-position: 50% -210px;
-  background-repeat: no-repeat;
-  position: absolute;
-  background-size: cover;
-  width: 96%;
-  height: 300px;
-  margin-left: 2%;
-} */
-
 main {
   padding: 35px;
+}
+
+.stream iframe {
+  display: none;
 }
 
 .heading {
@@ -515,7 +511,9 @@ form button,
 .news-content {
   margin-bottom: 10px;
 }
-
+.news-content.bold {
+  font-weight: 600;
+}
 .news {
   border-bottom: 1px solid #dfca89;
   padding-bottom: 20px;
@@ -544,10 +542,6 @@ footer {
 }
 
 @media only screen and (max-width: 1400px) {
-  /* .christmas-tree {
-    background-position: 50% 180%;
-  } */
-
   .header_text .text {
     font-size: 100px;
   }
@@ -571,10 +565,6 @@ footer {
 }
 
 @media only screen and (max-width: 992px) {
-  /* .christmas-tree {
-    height: 225px;
-  } */
-
   .timer-container p {
     font-size: 45px;
 
@@ -645,9 +635,6 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-  /* .christmas-tree {
-    height: 191px;
-  } */
   .timer-container p {
     font-size: 35px;
   }
@@ -694,10 +681,6 @@ footer {
   header {
     padding-bottom: 100px;
   }
-  /* .christmas-tree {
-    height: 150px;
-    background-position: 50% -200%;
-  } */
   .header_text .text {
     font-size: 45px;
   }

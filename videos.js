@@ -1,5 +1,4 @@
 ;(() => {
-  console.log('hello from video')
   const videosList = [
     'https://tdrmos.ru/upload/iblock/26c/88b35132_4762_4c23_95c2_d63980489c0a.mov',
     'https://tdrmos.ru/upload/iblock/4a6/4f81cdcb_78de_45a3_8aa5_ecbb4eef1045.mp4',
@@ -33,7 +32,6 @@
     placeholder.style.display = 'block'
   }
   const hidePlaceholder = () => {
-    console.log('hiding')
     videoholder.style.display = 'block'
     placeholder.style.display = 'none'
   }
