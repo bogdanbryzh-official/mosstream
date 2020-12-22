@@ -83,7 +83,7 @@ header {
   mix-blend-mode: screen;
 }
 
-.christmas-tree {
+/* .christmas-tree {
   background-image: url('./img/header/ctree.png');
   background-size: auto;
   background-position: 50% -210px;
@@ -93,7 +93,7 @@ header {
   width: 96%;
   height: 300px;
   margin-left: 2%;
-}
+} */
 
 main {
   padding: 35px;
@@ -156,9 +156,19 @@ main {
   grid-gap: 35px;
   grid-template-columns: 1fr 400px;
 }
+.promo {
+  grid-column: 1 / 3;
+}
+.everythingelserigth {
+  grid-column: 1 / 2;
+}
+.everythingelseleft {
+  grid-row-start: 2;
+  grid-column: 2;
+}
 
 .promo {
-  margin-bottom: 50px;
+  margin: -35px 0;
 }
 
 .promo-container {
@@ -202,24 +212,58 @@ main {
   background-position: center center;
 }
 
+.results {
+  --plyr-color-main: #cc2222;
+}
+.video {
+  display: none;
+}
 .placeholder {
   width: 100%;
-  height: 500px;
-  background-color: #252525;
+  height: 30vw;
+  background-color: var(--plyr-color-main);
   position: relative;
 }
-.placeholder::after {
-  position: relative;
+.lds-ring {
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
   display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-  border-left: 100px solid #eeeeee;
-  top: calc(50% - 50px);
-  left: calc(50% - 50px);
+video {
+  width: 100%;
 }
 
 input[type='radio'] {
@@ -305,18 +349,27 @@ form button,
 }
 
 .quiz-backdrop {
-  position: fixed;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background-color: #ffffffbb;
+  z-index: 999;
+  overflow: auto;
 }
 
 .quiz-default-theme #quiz {
   box-shadow: 0 10px 30px #333333b3;
   border: 2px solid #333;
   color: #333;
+}
+
+.quiz-default-theme .variant {
+  border-color: #333;
 }
 
 .quiz-default-theme .variant:hover {
@@ -332,7 +385,11 @@ form button,
 .quiz-success-theme #quiz {
   box-shadow: 0 10px 30px #3b8608b3;
   border: 2px solid #3b8608;
-  color: #3b8608;
+  /* color: #3b8608; */
+}
+
+.quiz-success-theme .varian {
+  border-color: #3b8608;
 }
 
 .quiz-success-theme .next {
@@ -342,7 +399,11 @@ form button,
 .quiz-fail-theme #quiz {
   box-shadow: 0 10px 30px #cc2222b3;
   border: 2px solid #cc2222;
-  color: #cc2222;
+  /* color: #cc2222; */
+}
+
+.quiz-fail-theme .varian {
+  border-color: #cc2222;
 }
 
 .quiz-fail-theme .next {
@@ -358,6 +419,11 @@ form button,
   background-color: #3b8608;
   color: #fff;
 }
+.choosen {
+  cursor: default;
+  background-color: #333;
+  color: #fff;
+}
 .wrong {
   background-color: #cc2222;
   color: #fff;
@@ -366,8 +432,6 @@ form button,
 #quiz-container {
   position: fixed;
   width: 60%;
-  top: 20%;
-  left: 20%;
 }
 
 #quiz {
@@ -377,6 +441,15 @@ form button,
   display: flex;
   flex-direction: column;
   padding: 20px;
+  padding-top: 40px;
+  max-height: 80vh;
+  height: auto;
+  overflow: auto;
+}
+@media screen and (max-width: 800px) {
+  #quiz-container {
+    width: 95%;
+  }
 }
 
 #quiz h3 {
@@ -385,7 +458,7 @@ form button,
 }
 
 #quiz h4 {
-  padding: 20px;
+  padding: 16px;
   font-weight: lighter;
   text-align: left;
   font-size: 22px;
@@ -408,8 +481,10 @@ form button,
 }
 
 .variant {
-  padding: 10px 40px;
+  padding: 10px 20px;
   font-weight: normal;
+  border: 1px solid;
+  border-radius: 4px;
 }
 
 .next:disabled {
@@ -434,18 +509,16 @@ form button,
 .news-date {
   font-size: 24px;
   font-weight: lighter;
+  margin-bottom: 10px;
 }
 
-.news button {
-  border: none;
-  background-color: transparent;
-  font-weight: bold;
-  font-size: 20px;
-  margin: 10px 0;
+.news-content {
+  margin-bottom: 10px;
 }
 
 .news {
   border-bottom: 1px solid #dfca89;
+  padding-bottom: 20px;
   margin-bottom: 20px;
 }
 
@@ -461,22 +534,25 @@ footer {
 .copyrights {
   text-transform: uppercase;
 }
+
 /* Адаптив */
-@media only screen and (max-width: 1400px) {
-  .christmas-tree {
-    background-position: 50% 180%;
+
+@media screen and (min-height: 800px) {
+  .quizes {
+    font-size: 12px;
   }
+}
+
+@media only screen and (max-width: 1400px) {
+  /* .christmas-tree {
+    background-position: 50% 180%;
+  } */
 
   .header_text .text {
     font-size: 100px;
   }
   .header_text .numbers {
     font-size: 250px;
-  }
-}
-@media only screen and (max-width: 1300px) {
-  .promo-container p {
-    font-size: 15px;
   }
 }
 
@@ -493,15 +569,11 @@ footer {
     width: 450px;
   }
 }
-@media only screen and (max-width: 1100px) {
-  .promo-container p {
-    font-size: 11px;
-  }
-}
+
 @media only screen and (max-width: 992px) {
-  .christmas-tree {
+  /* .christmas-tree {
     height: 225px;
-  }
+  } */
 
   .timer-container p {
     font-size: 45px;
@@ -565,7 +637,7 @@ footer {
     object-fit: contain;
   }
   .promo-container p {
-    font-size: 10px;
+    font-size: 15px;
   }
   .everythingelse {
     grid-template-columns: 1fr 200px;
@@ -573,14 +645,17 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-  .christmas-tree {
+  /* .christmas-tree {
     height: 191px;
-  }
+  } */
   .timer-container p {
     font-size: 35px;
   }
   .everythingelse {
     display: block;
+  }
+  .promo-container {
+    display: none;
   }
   .promo-container p {
     font-size: 13px;
@@ -591,7 +666,7 @@ footer {
     text-align: center;
   }
   .news-card {
-    text-align: center;
+    text-align: left;
   }
 }
 @media only screen and (max-width: 650px) {
@@ -619,20 +694,16 @@ footer {
   header {
     padding-bottom: 100px;
   }
-  .christmas-tree {
-    height: 180px;
-    background-position: 50% -150%;
-  }
+  /* .christmas-tree {
+    height: 150px;
+    background-position: 50% -200%;
+  } */
   .header_text .text {
     font-size: 45px;
   }
   .header_text .numbers {
     font-size: 75px;
   }
-  .christmas-tree {
-    height: 150px;
-  }
-
   .timer-counter > * {
     padding: 0 25px;
   }
@@ -677,6 +748,7 @@ footer {
   .promo-container {
     padding: 0 100px;
     height: 115px;
+    display: none;
   }
 
   .promo-container::after {

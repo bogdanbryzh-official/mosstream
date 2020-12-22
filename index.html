@@ -1,202 +1,177 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Новый год 2021</title>
 
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/favicon/apple-touch-icon.png?v=M4695N8dGm"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon/favicon-32x32.png?v=M4695N8dGm"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon/favicon-16x16.png?v=M4695N8dGm"
-    />
-    <link rel="manifest" href="/favicon/manifest.json?v=M4695N8dGm" />
-    <link
-      rel="mask-icon"
-      href="/favicon/safari-pinned-tab.svg?v=M4695N8dGm"
-      color="#B91927"
-    />
-    <link rel="shortcut icon" href="/favicon/favicon.ico?v=M4695N8dGm" />
-    <meta name="apple-mobile-web-app-title" content="Экономика Москвы" />
-    <meta name="application-name" content="Экономика Москвы" />
-    <meta name="msapplication-TileColor" content="#b91d47" />
-    <meta
-      name="msapplication-TileImage"
-      content="/favicon/mstile-144x144.png?v=M4695N8dGm"
-    />
-    <meta name="theme-color" content="#ffffff" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Новый год 2021</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=PT+Sans:wght@700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png?v=M4695N8dGm" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png?v=M4695N8dGm" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png?v=M4695N8dGm" />
+  <link rel="manifest" href="/favicon/manifest.json?v=M4695N8dGm" />
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg?v=M4695N8dGm" color="#B91927" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico?v=M4695N8dGm" />
+  <meta name="apple-mobile-web-app-title" content="Экономика Москвы" />
+  <meta name="application-name" content="Экономика Москвы" />
+  <meta name="msapplication-TileColor" content="#b91d47" />
+  <meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png?v=M4695N8dGm" />
+  <meta name="theme-color" content="#ffffff" />
 
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="body_bg">
-      <div class="content_bg">
-        <div class="content">
-          <div class="wrapper">
-            <header>
-              <div class="header-container">
-                <div class="logo_bg">
-                  <img
-                    src="./img/logo.png"
-                    class="logo"
-                    alt="Лого Экономика Москвы"
-                  />
-                </div>
-                <div class="header_text">
-                  <p class="text">Новый год</p>
-                  <p class="numbers">2021</p>
-                </div>
+  <link rel="preconnect" href="//fonts.gstatic.com" />
+  <link href="//fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=PT+Sans:wght@700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="//cdn.plyr.io/3.6.3/plyr.css" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="body_bg">
+    <div class="content_bg">
+      <div class="content">
+        <div class="wrapper">
+          <header>
+            <div class="header-container">
+              <div class="logo_bg">
+                <img src="./img/logo.png" class="logo" alt="Лого Экономика Москвы" />
               </div>
-              <div class="christmas-tree"></div>
-            </header>
-            <main>
-              <div class="stream" id="stream">
-                <div class="stream_heading">
-                  <h2 class="heading">Трансляция</h2>
-                </div>
-                <div class="timer" id="timer">
-                  <div class="timer-container">
-                    <p>СОБЫТИЕ НАЧНЕТСЯ ЧЕРЕЗ</p>
-                    <div class="timer-counter">
-                      <div id="days">
-                        <p>00</p>
-                        <p>ДНЕЙ</p>
-                      </div>
-                      <div id="hours">
-                        <p>00</p>
-                        <p>ЧАСОВ</p>
-                      </div>
-                      <div id="minutes">
-                        <p>00</p>
-                        <p>МИНУТ</p>
-                      </div>
+              <div class="header_text">
+                <p class="text">Новый год</p>
+                <p class="numbers">2021</p>
+              </div>
+            </div>
+            <div class="christmas-tree"><img src="./img/header/ctree.png" alt=""></div>
+          </header>
+          <main>
+            <div class="stream" id="stream">
+              <div class="stream_heading">
+                <h2 class="heading">Трансляция</h2>
+              </div>
+              <div class="timer" id="timer">
+                <div class="timer-container">
+                  <p>СОБЫТИЕ НАЧНЕТСЯ ЧЕРЕЗ</p>
+                  <div class="timer-counter">
+                    <div id="days">
+                      <p>00</p>
+                      <p>ДНЕЙ</p>
+                    </div>
+                    <div id="hours">
+                      <p>00</p>
+                      <p>ЧАСОВ</p>
+                    </div>
+                    <div id="minutes">
+                      <p>00</p>
+                      <p>МИНУТ</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="everythingelse">
-                <div class="everythingelseleft">
-                  <div class="promo">
-                    <div class="promo-container">
-                      <p>
-                        ...Новый Год – это праздник детства, ведь каждый
-                        взрослый с детским задором ждет этого праздника и
-                        готовится к нему. Люди покупают подарки друзьям, родным,
-                        близким и любимым, наряжают елки, приглашают гостей.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="news">
-                    <h2 class="heading">Новости</h2>
-                    <div class="news-card">
-                      <div class="news-cover"></div>
-                      <div class="news-title">Это тестовая новость</div>
-                      <div class="news-date">15.12.2020</div>
-                      <p class="news-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Iusto, sapiente mollitia? Excepturi at non iusto
-                        repellendus ipsa aperiam illum adipisci harum quidem
-                        ratione quasi sequi aliquid commodi quo sunt, facere
-                        voluptatibus tempore iste magnam doloremque voluptatum
-                        dolores dolorem culpa. Vero, numquam? Labore possimus
-                        accusamus hic nam maiores vel numquam recusandae magnam
-                        earum saepe aperiam ea vitae, dignissimos dolore
-                        dolores, similique tenetur illum. Fugit hic repellendus
-                        illo natus quos laboriosam eligendi, nesciunt ipsam
-                        pariatur consequatur excepturi aliquam earum reiciendis
-                        tempore quis vel molestias deleniti iure ut. Atque saepe
-                        vero nisi, nesciunt deserunt, voluptas quidem eos quas
-                        facilis in quaerat magnam cumque consectetur amet
-                        accusamus, ab praesentium repellat laborum perspiciatis.
-                        Quis quod odio cupiditate dignissimos cum. Repellendus,
-                        fuga reiciendis
-                      </p>
-                      <button>Развернуть</button>
-                    </div>
-                  </div>
-                  <div class="results">
-                    <h2 class="heading">Итоги</h2>
-                    <!-- placeholder -->
-                    <div class="placeholder"></div>
-                  </div>
+            </div>
+            <div class="everythingelse">
+              <div class="promo">
+                <div class="promo-container">
+                  <p>
+                    ...Новый Год – это праздник детства, ведь каждый взрослый
+                    с детским задором ждет этого праздника и готовится к нему.
+                    Люди покупают подарки друзьям, родным, близким и любимым,
+                    наряжают елки, приглашают гостей.
+                  </p>
                 </div>
-                <div class="everythingelseright">
-                  <div class="quizes">
-                    <h2 class="heading">Викторина</h2>
-
-                    <p>
-                      Пройдите и узнайте насколько хорошо вы разбираетесь в
-                      теме!
+              </div>
+              <div class="everythingelseright">
+                <div class="news">
+                  <h2 class="heading">Новости</h2>
+                  <div class="news-card">
+                    <div class="news-cover"></div>
+                    <p class="news-title">Новый год к нам мчится,
+                      Скоро все случится!</p>
+                    <div class="news-date">24.12.2020</div>
+                    <p class="news-content">
+                      Этот праздник по праву считается самым любимым и долгожданным событием 2020 года.</p>
+                    <p class="news-content">
+                      Новый год – это знаменитый салат «Оливье», шампанское, большое количество гостей, угощения,
+                      которые готовятся неизменно в спешке, а фоном звучат звуки из полюбившегося кинофильма «Ирония
+                      судьбы, или с легким паром!», вечер канонады из пиротехники, улыбки, радость и загадывание
+                      желаний!
                     </p>
-
-                    <button id="go-quiz">Пройти викторину</button>
-
-                    <div class="quiz-backdrop hidden">
-                      <div id="quiz-container" class="quiz-default-theme">
-                        <div id="quiz" class="quiz"></div>
-                      </div>
-                    </div>
+                    <p class="news-content">
+                      В этом году  мы с вами совместно создаем не только настроение волшебства в преддверии праздника,
+                      но и целый ОНЛАЙН НОВЫЙ ГОД КОМПЛЕКСА, который можно посмотреть с любого устройства как дома, так
+                      и на работе. 
+                      В программе: награждение сотрудников по итогам года с участием руководителей, творческие номера от
+                      наших коллег, подведение итогов новогоднего конкурса и многое другое!
+                    </p>
+                    <p class="news-content">
+                      24 декабря в 14:00 на всех экранах Экономики Москвы отметим Новый год Комплекса ВМЕСТЕ!
+                    </p>
                   </div>
-                  <div class="feedback">
-                    <h2 class="heading">Обратная связь</h2>
-                    <form>
-                      <p>Поделитесь с нами своими мыслями!</p>
-                      <label for="name">Имя</label>
-                      <input type="text" id="name" placeholder="Ваше имя" />
-                      <label for="email">Почта</label>
-                      <input
-                        type="text"
-                        id="email"
-                        placeholder="Почтовый адрес"
-                      />
-                      <label for="phone">Телефон</label>
-                      <input
-                        type="text"
-                        id="phone"
-                        placeholder="Номер телефон"
-                      />
-                      <label for="comment">Комментарий</label>
-                      <textarea
-                        name="comment"
-                        id="comment"
-                        cols="30"
-                        rows="5"
-                        placeholder="Напишите сообщение"
-                      ></textarea>
-                      <button type="submit">Отправить</button>
-                    </form>
+                </div>
+                <div class="results">
+                  <h2 class="heading">Итоги</h2>
+                  <div class="video">
+                    <video id="player" controls>
+                      <source src="//tdrmos.ru/upload/iblock/4a6/4f81cdcb_78de_45a3_8aa5_ecbb4eef1045.mp4"
+                        type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="placeholder">
+                    <div class="lds-ring">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </main>
-            <footer>
-              <p class="copyrights">&copy; mos.ru 2020</p>
-            </footer>
-          </div>
+              <div class="everythingelseleft">
+                <div class="quizes">
+                  <h2 class="heading">Викторина «Игры разума»</h2>
+
+                  <p>
+                    Пройдите и узнайте насколько хорошо вы разбираетесь в теме!
+                  </p>
+
+                  <button id="go-quiz">Пройти викторину</button>
+
+                  <div class="quiz-backdrop hidden">
+                    <div id="quiz-container" class="quiz-default-theme">
+                      <div id="quiz" class="quiz"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feedback">
+                  <h2 class="heading">Обратная связь</h2>
+                  <form>
+                    <p>Поделитесь с нами своими мыслями!</p>
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" placeholder="Ваше имя" />
+                    <label for="email">Почта</label>
+                    <input type="text" id="email" placeholder="Почтовый адрес" />
+                    <label for="phone">Телефон</label>
+                    <input type="text" id="phone" placeholder="Номер телефон" />
+                    <label for="comment">Комментарий</label>
+                    <textarea name="comment" id="comment" cols="30" rows="5"
+                      placeholder="Напишите сообщение"></textarea>
+                    <button type="submit">Отправить</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </main>
+          <footer>
+            <p class="copyrights">&copy; mos.ru 2020</p>
+          </footer>
         </div>
       </div>
     </div>
-    <script src="//cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
-    <script src="./timer.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/umbrellajs"></script>
-    <script src="./quiz.js"></script>
-  </body>
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+  <script src="./timer.min.js"></script>
+  <script src="./quiz.js"></script>
+  <script src="//cdn.plyr.io/3.6.3/plyr.polyfilled.js"></script>
+  <script src="./videos.js"></script>
+</body>
+
 </html>

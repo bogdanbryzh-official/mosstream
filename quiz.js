@@ -14,7 +14,7 @@
     return array
   }
 
-  let questions = [
+  const questions = [
     {
       question:
         'Специалисты по работе с данными придумали правило 3-2-1, обеспечивающее соблюдение техник безопасности. Что означают эти цифры?',
@@ -395,7 +395,7 @@
     },
   ]
 
-  questions = shuffleArray(shuffleArray(shuffleArray(shuffleArray(questions))))
+  let questionsShuffled = shuffleArray(questions)
 
   const goQuizBtn = document.getElementById('go-quiz')
   const quizBackdrop = document.getElementsByClassName('quiz-backdrop')[0]
@@ -411,14 +411,21 @@
   getNextBtn.classList.add('next')
 
   const getRandomQuestion = () => {
-    return questions.pop(Math.round(Math.random() * questions.length))
+    console.log(questionsShuffled[3].question)
+    if (questionsShuffled.length < 10) {
+      console.log('wft man?')
+      questionsShuffled = [...shuffleArray(questions)]
+    }
+    console.log(questionsShuffled[3].question)
+    const index = Math.floor(Math.random() * questionsShuffled.length)
+    console.log(questionsShuffled.length)
+    console.log(index)
+    return questionsShuffled.pop(index)
   }
 
   const checkAnswer = e => {
     answer = e.target
-    console.log('answer clicked', answer)
-    quizContainer.classList.remove('quiz-default-theme')
-    getNextBtn.disabled = false
+    answer.classList.add('choosen')
 
     const all = answer.parentNode.childNodes
     all.forEach(item => {
@@ -427,22 +434,30 @@
       }
     })
 
-    if (answer.dataset.correct === 'true') {
-      quizContainer.classList.add('quiz-success-theme')
-      answer.classList.add('correct')
-      CORRECT_ANSWERS++
-    } else {
-      quizContainer.classList.add('quiz-fail-theme')
-      answer.classList.add('wrong')
-      WRONG_ANSWERS++
-    }
-    if (ANSWERS_LEFT === 1) {
-      getNextBtn.textContent = 'Завершить'
-      getNextBtn.dataset.end = true
-    } else {
-      getNextBtn.textContent = 'Следующий вопрос'
-      getNextBtn.dataset.end = false
-    }
+    setTimeout(() => {
+      quizContainer.classList.remove('quiz-default-theme')
+      getNextBtn.disabled = false
+
+      if (answer.dataset.correct === 'true') {
+        quizContainer.classList.add('quiz-success-theme')
+        answer.textContent = '🔥 ' + answer.textContent + ' 🔥'
+        answer.classList.remove('choosen')
+        answer.classList.add('correct')
+        CORRECT_ANSWERS++
+      } else {
+        quizContainer.classList.add('quiz-fail-theme')
+        answer.classList.remove('choosen')
+        answer.classList.add('wrong')
+        WRONG_ANSWERS++
+      }
+      if (ANSWERS_LEFT === 1) {
+        getNextBtn.textContent = 'Завершить'
+        getNextBtn.dataset.end = true
+      } else {
+        getNextBtn.textContent = 'Следующий вопрос'
+        getNextBtn.dataset.end = false
+      }
+    }, 500)
   }
 
   const showAnswer = a => {
@@ -519,10 +534,12 @@
   }
 
   goQuizBtn.addEventListener('click', () => {
-    showQuiz()
     ANSWERS_LEFT = 5
     CORRECT_ANSWERS = 0
     WRONG_ANSWERS = 0
+    showQuiz()
   })
-  getNextBtn.addEventListener('click', showQuiz)
+  getNextBtn.addEventListener('click', () => {
+    showQuiz()
+  })
 })()
